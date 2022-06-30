@@ -12,6 +12,7 @@ namespace StudentsAndCourses.Models
         public List<string> StudentHardware { get; set; }
         public List<string> MainTransportType { get; set; }
         public List<NZQACourses> StudentNZQACourses { get; set; }
+        public int StudentSelected { get; set; }
         public Student()
         {
             StudentHardware = new List<string>();
