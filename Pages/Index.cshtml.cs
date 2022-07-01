@@ -17,7 +17,7 @@ namespace StudentsAndCourses.Pages
             if (ModelState.IsValid)
             {
               //  FirstLoad = true;
-                student = Factory.GetAStudent(1);
+                student = Factory.GetAStudentSimple("Programming");
             }
             return Page();
         }

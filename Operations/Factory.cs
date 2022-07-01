@@ -21,8 +21,23 @@ namespace StudentsAndCourses.Operations
 
         }
 
+        public static Student GetAStudentSimple(string Name)
+        {
+            if (Name == "Web")
+            {
+                return new Web();
+            }
 
-
+            if (Name == "Programming")
+            {
+                return new Programming();
+            }
+            //default
+            return new Web();
+        }
 
     }
+
+
 }
+
