@@ -1,39 +1,30 @@
 ﻿@page
 @using StudentsAndCourses.Operations
 @model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
 
 <div class="card" style=" margin-top: 20px">
     <div class="card-header">
         <h1>Students and Courses</h1>
-        <h3>Header</h3>
-        <p class="card-text">Add stuff here</p>
     </div>
     <div class="card-body">
-        <h3>Body</h3>
-
         <form method="post">
-            <div class="form-group">
-                <div class="row">
-                    <label>Select a Student and Course</label>
-                    <select asp-for="@Model.student.StudentSelected" asp-items="Html.GetEnumSelectList<StudentEnum>()">
-                        <option selected="selected" value="">Select a Student</option>
-                    </select>
-                </div>
 
-                <div class="row">
-                    <input type="submit" value="Submit" asp-action="Index" />
-                </div>
-            </div>
+            <label>Select a Student and Course</label>
+            <select asp-for="@Model.student.StudentSelected" asp-items="Html.GetEnumSelectList<StudentEnum>()">
+                <option selected="selected" value="">Select a Course</option>
+            </select>
+            <input type="submit" value="Submit" asp-action="Index" />
+
+
         </form>
     </div>
     <div class="card-footer">
-        <h3>Footer</h3>
-
-        <div class="row">
-            <p @Model.student.FirstName  @Model.student.LastName in @Model.student.Course.Name with @Model.student.Course.Tutor </p>
-        </div>
+        @if (Model.FirstLoad)
+        {
+            <h3>@Model.student.FirstName @Model.student.LastName</h3>
+            <h4> @Model.student.Course.Name @Model.student.Course.Tutor</h4>
+        } 
+            <h3> @Model.ErrorMessage</h3>
+      
     </div>
 </div>

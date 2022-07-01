@@ -5,7 +5,7 @@ namespace StudentsAndCourses.Operations
     public static class Factory
     {
         //factory method that decides which Student type to instantiate
-        public static Student GetAStudent(int? id)
+        public static Student? GetAStudent(int? id)
         {
             switch (id)
             {
@@ -16,25 +16,25 @@ namespace StudentsAndCourses.Operations
 
 
                 default:
-                    return new Web();
+                    return new Student();
             }
 
         }
 
-        public static Student GetAStudentSimple(int id)
-        {
-            if (id == 1)
-            {
-                return new Web();
-            }
+        //public static Student GetAStudentSimple(int id)
+        //{
+        //    if (id == 1)
+        //    {
+        //        return new Web();
+        //    }
 
-            if (id == 2)
-            {
-                return new Programming();
-            }
-            //default
-            return new Web();
-        }
+        //    if (id == 2)
+        //    {
+        //        return new Programming();
+        //    }
+        //    //default
+        //    return new Web();
+        //}
 
     }
 
