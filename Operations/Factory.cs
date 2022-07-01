@@ -21,14 +21,14 @@ namespace StudentsAndCourses.Operations
 
         }
 
-        public static Student GetAStudentSimple(string Name)
+        public static Student GetAStudentSimple(int id)
         {
-            if (Name == "Web")
+            if (id == 1)
             {
                 return new Web();
             }
 
-            if (Name == "Programming")
+            if (id == 2)
             {
                 return new Programming();
             }

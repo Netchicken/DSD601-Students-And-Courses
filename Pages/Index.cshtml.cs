@@ -9,25 +9,24 @@ namespace StudentsAndCourses.Pages
     [BindProperties]
     public class IndexModel : PageModel
     {
-        public Student student { get; set; }
+        //this is the student base class
+        public Student? student { get; set; }
 
+        public void OnGet()
+        {
+
+            student = new Student();
+
+        }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
-              //  FirstLoad = true;
-                student = Factory.GetAStudentSimple("Programming");
+                //here we are changing the studnet class to the selected class.
+                student = Factory.GetAStudent(student.StudentSelected);
             }
             return Page();
-        }
-
-
-
-
-        public void OnGet()
-        {
-            
         }
     }
 }

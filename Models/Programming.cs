@@ -1,15 +1,17 @@
-﻿using StudentsAndCourses.Operations;
-
-namespace StudentsAndCourses.Models
+﻿namespace StudentsAndCourses.Models
 {
     public class Programming : Student
     {
-        public bool HasLaptop { get; set; }
+        public string FirstName { get; set; } = "Susan";
+        public string LastName { get; set; } = "Smith";
+        public bool HasLaptop { get; set; } = true;
         public bool IsEnrolledinMSA { get; set; }
+        public Course Course { get; set; }
 
         public Programming()
         {
-            StudentNZQACourses.Add(new NZQACourses("Year 1 DSD", "123", true, "2020"));
+            Course.Name = "Programming";
+            Course.Tutor = "Gary";
         }
     }
 

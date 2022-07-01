@@ -1,8 +1,9 @@
-﻿using StudentsAndCourses.Operations;
+﻿using StudentsAndCourses.Interfaces;
+using StudentsAndCourses.Operations;
 
 namespace StudentsAndCourses.Models
 {
-    public abstract class Student
+    public class Student : IStudent
     {
         public int ID { get; set; }
         public string FirstName { get; set; }
@@ -18,7 +19,7 @@ namespace StudentsAndCourses.Models
             StudentHardware = new List<string>();
             MainTransportType = new List<string>();
             StudentNZQACourses = new List<NZQACourses>();
-
+            Course = new Course();
 
 
             MainTransportType.Add("Car");
