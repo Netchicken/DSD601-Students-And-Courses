@@ -6,24 +6,30 @@ using StudentsAndCourses.Operations;
 
 namespace StudentsAndCourses.Pages
 {
-
+    [BindProperties]
     public class IndexModel : PageModel
     {
-        [BindProperty]
         public Student? student { get; set; }
-        [BindProperty]
-        public bool FirstLoad { get; set; } = false;
-        [BindProperty]
+        public bool IsFirstLoad { get; set; } = false;
         public string? ErrorMessage { get; set; }
 
+        public IndexModel()
+        {
+            student = new Student();
+        }
+
+        public void OnGet()
+        {
+            //  student = new Student();
+
+        }
 
         public async Task<IActionResult> OnPostAsync()
         {
-
             if (ModelState.IsValid)
             {
-                FirstLoad = true;
-                //here we are changing the studnet class to the selected class.
+                IsFirstLoad = true;
+                //here we are changing the student class to the selected class.
                 student = Factory.GetAStudent(student.StudentSelected);
             }
             else
@@ -37,17 +43,5 @@ namespace StudentsAndCourses.Pages
             return Page();
         }
 
-
-        public IndexModel()
-        {
-            //student = new Student();
-        }
-
-        public void OnGet()
-        {
-
-
-
-        }
     }
 }

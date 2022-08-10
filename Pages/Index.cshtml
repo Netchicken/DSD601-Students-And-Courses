@@ -10,21 +10,22 @@
         <form method="post">
 
             <label>Select a Student and Course</label>
+            @*This is the listbox it gets its items asp-items= from the StudentEnum we made. *@
             <select asp-for="@Model.student.StudentSelected" asp-items="Html.GetEnumSelectList<StudentEnum>()">
+                @*We can add in a default entry to be shown when it runs.*@
                 <option selected="selected" value="">Select a Course</option>
             </select>
             <input type="submit" value="Submit" asp-action="Index" />
-
-
         </form>
     </div>
     <div class="card-footer">
-        @if (Model.FirstLoad)
-        {
-            <h3>@Model.student.FirstName @Model.student.LastName</h3>
-            <h4> @Model.student.Course.Name @Model.student.Course.Tutor</h4>
-        } 
-            <h3> @Model.ErrorMessage</h3>
-      
+        @if (Model.IsFirstLoad ==true)
+            {
+        <h3>@Model.student.FirstName @Model.student.LastName</h3>
+        <h4> @Model.student.Course.Name @Model.student.Course.Tutor</h4>
+       }
+
+        <h3> @Model.ErrorMessage</h3>
+
     </div>
 </div>

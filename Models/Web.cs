@@ -10,7 +10,7 @@
         {
             FirstName = "John";
             LastName = "Smith";
-            //Course = new Course();
+           
             Course.Name = "Web";
             Course.Tutor = "Jeffery";
         }
